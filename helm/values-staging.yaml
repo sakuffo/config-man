@@ -1,0 +1,22 @@
+namespace:
+  name: saa-staging
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: 1.18.0
+  pullPolicy: IfNotPresent
+
+resource:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+
+service:
+  port: 8111
+  type: LoadBalancer
+
+configmap:
+  data: "version: 1.18.0"
+
